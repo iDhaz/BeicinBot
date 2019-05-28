@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Ramabhadra|Ubuntu&display=swap"
@@ -97,5 +94,3 @@
         </section>
     </div>
 </body>
-
-</html>
