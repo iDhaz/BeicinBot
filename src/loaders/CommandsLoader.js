@@ -1,15 +1,19 @@
-const DIR_COMMANDS = 'src/commands',
-    { readdir } = require("fs"),
-    { promisify } = require('util'),
-    path = require('path'),
-    fs = require("fs")
+const { CommandLoader, Command } = require("../structures/CMD/");
+const { readdir } = require("fs");
+const fs = require("fs");
+const DIR_COMMANDS = ('src/commands');
+const path = require('path');
+const { promisify } = require('util');
 
-module.exports = class CommandsLoader {
+module.exports = class CommandsLoader extends CommandLoader {
     constructor(client) {
+        super(client)
+
         this.name = 'CommandsLoader'
 
         this.client = client
         this.commands = new client.collection
+        this.client.loaderCommand = async (cmd) => { return await this.CommandLoad(cmd) }
     }
 
     async call() {
@@ -30,6 +34,9 @@ module.exports = class CommandsLoader {
                     const required = require('../commands/' + cmdPath);
                     delete require.cache[require.resolve(`../commands/${cmdPath}`)];
                     const command = new (required)(this.client);
+
+                    if (!(command instanceof Command)) return;
+
                     this.commands.set(command.name, {
                         commandHelp: command,
                         commandDirectory: cmdPath

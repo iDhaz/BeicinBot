@@ -1,3 +1,13 @@
 {
-    "mentionBot": "utilize **`{{prefix}} help`** para saber mais!"
+    "mentionBot": "utilize **`{{prefix}} help`** para saber mais!",
+    "reloadlocales": {
+        "loaded": "Recarreguei o sistema de linguagem com sucesso!",
+        "noloaded": "Desculpe ocorreu um erro ao tentar recarregar!"
+    },
+    "reload": {
+        "noArgs": "Por favor insira o `[nome|aliase]` do comando a ser **recarregado**!",
+        "noCommand": "Desculpe, mas o comando **{{cmd}}** não foi encontrado",
+        "error": "Ocorreu um erro ao tentar executar o comando : **{{err}}**",
+        "reloaded": "O comando **{{cmd}}** foi recarregado com **sucesso**!"
+    }
 }

@@ -6,6 +6,8 @@ module.exports = class Beiçin extends Client {
     constructor(settings) {
         super(settings);
 
+        settings.requireEnv();
+
         this.collection = Collection;
         this.RandomMatch = Match
         this.regionsLang = Regions

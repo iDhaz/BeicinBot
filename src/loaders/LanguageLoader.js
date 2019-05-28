@@ -7,10 +7,11 @@ const translationBackend = require('i18next-node-fs-backend');
 module.exports = class LanguageLoader {
     constructor(client) {
         this.name = 'LanguageLoader'
-        
+
         this.client = client
         this.language = {
-            i18next: i18next
+            i18next: i18next,
+            LoaderLanguage: async () => { return await this.LoaderLanguage('src/locales') }
         }
     }
 
@@ -24,8 +25,8 @@ module.exports = class LanguageLoader {
 
     async LoaderLanguage(dirPath = 'src/locales') {
         try {
-            i18next.use(translationBackend).init({
-                ns: ['comandos', 'errors', 'bot'],
+            await i18next.use(translationBackend).init({
+                ns: ['comandos', 'errors', 'clientMessages'],
                 preload: await LanguageLoader.readdir(dirPath),
                 fallbackLng: 'pt-BR',
                 backend: {
@@ -36,8 +37,10 @@ module.exports = class LanguageLoader {
                 },
                 returnEmptyString: false
             })
+            return true;
         } catch (e) {
-            this.client.LOG_ERR(e)
+            this.client.LOG_ERR(e);
+            return false;
         }
     }
 }

@@ -1,7 +1,9 @@
+const utilsCommand = require("./structures/CMD/");
+
 module.exports = {
-    Command: require("./structures/CMD/Command.js"),
-    CommandContext: require("./structures/CMD/CommandContext.js"),
-    EvaledCommand: require("./structures/CMD/EvaledCommand.js"),
+    Command: utilsCommand.Command,
+    CommandContext: utilsCommand.CommandContext,
+    EvaledCommand: utilsCommand.EvaledCommand,
 
     Emojis: require("./utils/Emojis.js"),
     ClientEmbed: require("./structures/ClientEmbed.js")

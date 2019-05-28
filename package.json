@@ -4,13 +4,19 @@
     "description": "Beiçin, Simple Bot",
     "main": "index.js",
     "scripts": {
-        "start": "nodemon --exec node -r dotenv/config index.js",
+        "start": "node index.js",
+        "local": "nodemon --exec",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "engines": {
         "node": ">=10.x",
         "npm": ">=6.x"
     },
+    "nodemonConfig": {
+        "ignore": [
+          "locales/*"
+        ]
+      },
     "author": "Pablo Vinícius (https://github.com/AvengerSuicide)",
     "contributors": [],
     "license": "MIT",

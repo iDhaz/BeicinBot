@@ -1,8 +1,7 @@
 const {
     Command,
     Emojis,
-    ClientEmbed,
-    EvaledCommand
+    ClientEmbed
 } = require("../../");
 
 class BotInfo extends Command {
@@ -20,12 +19,12 @@ class BotInfo extends Command {
         });
     }
 
-    async run({ author, channel, args }, t) {
+    async run({ author, channel }, t) {
         const EMBED = new ClientEmbed(author)
             .setAuthor(this.client.user.username, this.client.user.displayAvatarURL)
             .setThumbnail(this.client.user.displayAvatarURL);
 
-            return channel.send(EMBED)
+        return channel.send(EMBED)
     }
 }
 

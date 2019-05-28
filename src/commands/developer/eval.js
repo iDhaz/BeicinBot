@@ -10,7 +10,7 @@ class Eval extends Command {
         super(client, {
             name: "eval",
             description: "Executa códigos em JS",
-            usage: { args: true, argsNeed: true, argsTxt: "code", need: "{prefix} {cmd} [{args}]" },
+            usage: { args: true, argsNeed: true, argsTxt: "code", need: "{prefix} {cmd} <{args}>" },
             category: "Developer",
             cooldown: 3000,
             aliases: ["e"],
@@ -25,7 +25,7 @@ class Eval extends Command {
         const CODE = async () => {
             const EvaledCMD = new EvaledCommand(this.client);
             const CODE = args.join(' ').replace(/^```(js|javascript ? \n )?|```$/gi, '')
-            const Evaled = await EvaledCMD.getEvaled(settings, CODE);
+            const Evaled = await EvaledCMD.getEvaled(settings, CODE, t);
 
             if (Evaled.result.length > 500) {
                 console.log('______________________________________')

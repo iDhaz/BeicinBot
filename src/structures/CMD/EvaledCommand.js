@@ -16,7 +16,7 @@ module.exports = class EvaledCommand {
         this.client = client
     }
 
-    async getEvaled({ author, channel, guild, message }, code) {
+    async getEvaled({ author, channel, guild, message }, code, t) {
         let RESULT;
         let ERRROR_EMIT = false;
         try {

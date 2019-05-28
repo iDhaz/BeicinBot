@@ -32,7 +32,7 @@ module.exports = class MessageEvent extends Event {
 
         if (message.content.match(await GET_MENTION(this.client.user.id)) && (!blacklist)) {
             return message.channel.send(new ClientEmbed(message.author)
-                .setDescription(`${Emojis.Certo} **${message.author.username}** `+this.client.language.i18next.getFixedT(language)('comandos:mentionBot', { prefix }))
+                .setDescription(`${Emojis.Certo} **${message.author.username}** ` + this.client.language.i18next.getFixedT(language)('comandos:mentionBot', { prefix }))
             )
         }
 
@@ -43,7 +43,7 @@ module.exports = class MessageEvent extends Event {
             const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
             const cmdInsert = args.shift().toLowerCase();
             const command = this.client.commands.find(cmd => cmd.commandHelp.name === cmdInsert || (
-                cmd.commandHelp.aliases.some(aliase => aliase.includes(cmdInsert))
+                cmd.commandHelp.aliases.includes(cmdInsert)
             ));
 
             if (command) {
@@ -61,7 +61,7 @@ module.exports = class MessageEvent extends Event {
                 const { aproved, because } = await APROVE();
 
                 if (!(aproved)) return message.channel.send(new ClientEmbed(message.author)
-                    .setDescription(`${Emojis.Errado} **${message.author.username}** `+ this.client.language.i18next.getFixedT(language)(because))
+                    .setDescription(`${Emojis.Errado} **${message.author.username}** ` + this.client.language.i18next.getFixedT(language)(because))
                 )
 
                 const settings = new CommandContext({
