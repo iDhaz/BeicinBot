@@ -10,7 +10,7 @@ class Eval extends Command {
         super(client, {
             name: "eval",
             description: "Executa códigos em JS",
-            usage: [{ args: true, argsNeed: true, argsTxt: "code", usage: "{prefix} {cmd} [{args}]" }],
+            usage: { args: true, argsNeed: true, argsTxt: "code", need: "{prefix} {cmd} [{args}]" },
             category: "Developer",
             cooldown: 3000,
             aliases: ["e"],
@@ -37,19 +37,18 @@ class Eval extends Command {
             return { evalTransform, color: Evaled.code == 'xl' ? true : false };
         }
 
-        const EMBED = new ClientEmbed(author)
-            .setAuthor(this.client.user.username, this.client.user.displayAvatarURL);
+        const EMBED = new ClientEmbed(author);
 
         if (args[0]) {
             const { evalTransform, color } = await CODE();
 
-            if (color) {
-                EMBED.setColor(process.env.ERROR_COLOR)
-            }
+            if (color) EMBED.setColor(process.env.ERROR_COLOR);
+
             return channel.send(EMBED
                 .setDescription(evalTransform)
             ).catch(this.client.logError)
         } else {
+            
             return channel.send(EMBED
                 .setDescription(`${Emojis.Errado} **${author.username}** ` + t('errors:noArgs'))
                 .setColor(process.env.ERROR_COLOR)

@@ -72,7 +72,8 @@ module.exports = class MessageEvent extends Event {
                     prefix,
                     message,
                     args,
-                    language
+                    language,
+                    developer
                 });
 
                 return command.commandHelp._run(settings)

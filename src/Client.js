@@ -1,6 +1,6 @@
 const { Client, Collection } = require("discord.js");
 const MODULES = require("./loaders/"),
-    { Match, Regions } = require("./utils/JSON/");
+    { Match, Regions, ERRORS } = require("./utils/JSON/");
 
 module.exports = class Beiçin extends Client {
     constructor(settings) {
@@ -9,6 +9,7 @@ module.exports = class Beiçin extends Client {
         this.collection = Collection;
         this.RandomMatch = Match
         this.regionsLang = Regions
+        this.ERRORS = ERRORS
     }
 
     async CONNECT(token = false) {

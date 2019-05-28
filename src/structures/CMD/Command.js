@@ -8,9 +8,9 @@ module.exports = class Command extends CommandUtils {
 
         this.client = client
         this.name = options.name || "Sem Nome"
-        this.description = options.description || false
-        this.usage = options.usage || false
-        this.category = options.category || "Outros"
+        this.description = options.description || "Nenhuma"
+        this.usage = options.usage || { args: false, argsNeed: false }
+        this.category = options.category || "Nenhuma"
         this.Permissions = options.Permissions || ["SEND_MESSAGES"]
         this.UserPermissions = options.UserPermissions || []
         this.cooldownTime = options.cooldown || 5000
@@ -20,16 +20,17 @@ module.exports = class Command extends CommandUtils {
     }
 
     async _run(settings) {
-        const { command, channel, author, developer, t } = settings;
+        const { command, channel, author, language, developer, used, t } = settings;
         const CMDVerify = new CommandVerify(this.client);
         try {
-            if (this.UserPermissions.length >= 1 && await (CMDVerify.VERIFY_MEMBER(settings)) === false) return;
-            if (this.Permissions.length >= 1 && await (CMDVerify.VERIFY_CLIENT(settings)) === false) return;
+            if((!t)) throw new ErrorCommand(this.client.ERRORS.language[language]);
+            if (this.Permissions.length >= 1 && await !(CMDVerify.VERIFY_CLIENT(settings))) return;
+            if ((!developer) && this.UserPermissions.length >= 1 && await !(CMDVerify.VERIFY_MEMBER(settings))) return;
 
             await command.commandHelp.run(settings, t);
             return true;
         } catch (e) {
-            return ErrorCommand.commandError(this.client, t, channel, author, e);
+            return ErrorCommand.commandError(this.client, command, t, channel, author, used, e);
         }
     }
 }

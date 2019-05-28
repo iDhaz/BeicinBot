@@ -31,7 +31,9 @@ module.exports = class Event {
                 await this.client.database.comandos.add({
                     _id: cmd.commandHelp.name,
                     name: cmd.commandHelp.name.toUpperCase(),
-                    devPermission: cmd.commandHelp.devNeed
+                    devPermission: cmd.commandHelp.devNeed,
+                    category: cmd.commandHelp.category,
+                    usage: cmd.commandHelp.usage
                 })
             } else {
                 let name = cmd.commandHelp.name

@@ -5,7 +5,7 @@ module.exports =  class CommandError extends Error {
         super(message);
     }
 
-    static commandError(client, t, channel, author, error, { displayAvatarURL } = client.user) {
+    static commandError(client, command, t, channel, author, used, error, { displayAvatarURL } = client.user) {
         try {
             return channel.send(new ClientEmbed(author)
                 .setAuthor(t('errors:CommandError'), displayAvatarURL)

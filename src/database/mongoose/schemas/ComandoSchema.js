@@ -7,6 +7,13 @@ module.exports = new Schema({
     name: {
         type: String
     },
+    category: {
+        type: String,
+        default: 'Nenhuma'
+    },
+    usage: {
+        type: Object
+    },
     devPermission: {
         type: Boolean,
         default: false

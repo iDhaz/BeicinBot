@@ -4,6 +4,7 @@ class CommandContext {
         this.client = options.client
 
         this.message = options.message
+        this.developer = options.developer
         this.author = options.message.author
         this.member = options.message.member
         this.channel = options.message.channel
