@@ -1,0 +1,54 @@
+
+        * {
+            margin: 0px;
+            text-align: center !important;
+            justify-content: space-between;
+        }
+
+        header {
+            border-bottom: 1px rgb(83, 75, 75) solid;
+            border-inline-end: 5px;
+        }
+
+        img {
+            border-radius: 100%;
+            width: 128px;
+        }
+
+        .container {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("https://i1.sndcdn.com/artworks-000522047457-ci6uwg-t500x500.jpg");
+            background-size: cover;
+        }
+
+        .logo {
+            margin-top: 20px;
+            -webkit-filter: drop-shadow(0px 0px 9.5px rgb(0, 0, 0));
+            filter: drop-shadow(0px 0px 9.5px rgb(0, 0, 0));
+        }
+
+        .title {
+            font-size: 30pt;
+            font-family: 'Ramabhadra', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* .title a {
+            text-decoration: none;
+            color: #000
+        }
+        .title a:hover {
+            color: #7f7dff
+        } */
+        #criador h1 {
+            margin-top: 15px;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #criador p {
+            font-family: 'Montserrat', sans-serif;
+            padding: 10px;
+        }
+
+        .title-owner {
+            font-size: 16pt;
+        }
