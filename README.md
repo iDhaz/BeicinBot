@@ -4,10 +4,7 @@
             <figure>
                 <img class="logo" src="https://i.imgur.com/wSupjFW.png" alt="logo">
                 <figcaption>
-                    <h1 class="title">
-                        Beicin
-                        <!--<a target="_blanck" href="https://discordapp.com/oauth2/authorize?client_id=578821153733476352&scope=bot&permissions=271903816">Beicin</a>-->
-                    </h1>
+                    <h1 class="title">BEICIN</h1>
                 </figcaption>
             </figure>
         </div>
