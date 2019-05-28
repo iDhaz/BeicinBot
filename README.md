@@ -1,7 +1,11 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Anton|Montserrat|Ramabhadra|Ubuntu&display=swap"
         rel="stylesheet">
+    <link rel=" stylesheet" type="text/css" href="./style.css">
 </head>
 
 <body>
@@ -38,3 +42,5 @@
         </section>
     </div>
 </body>
+
+</html>
