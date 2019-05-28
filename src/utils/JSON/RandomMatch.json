@@ -1,6 +1,6 @@
 {
     "verify": true,
-    "type": 1,
+    "type": 0,
     "url": "https://www.twitch.tv/null",
     "status": "dnd",
     "txt": "@{{user}} help"
