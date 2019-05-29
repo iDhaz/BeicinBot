@@ -8,6 +8,10 @@ module.exports = new Schema({
         type: Boolean,
         default: false
     },
+    owner: {
+        type: Boolean,
+        default: false
+    },
     developer: {
         type: Boolean,
         default: false

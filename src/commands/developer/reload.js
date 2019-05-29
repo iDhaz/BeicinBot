@@ -9,7 +9,7 @@ class Reload extends Command {
         super(client, {
             name: "reload",
             description: "Recarrega o comando inserido",
-            usage: { args: true, argsNeed: true, argsTxt: "command", need: "{prefix} {cmd} <{args}>" },
+            usage: { args: true, argsNeed: true, argsTxt: "<command>", need: "{prefix} {cmd} {args}" },
             category: "Developer",
             cooldown: 3000,
             aliases: ["r", "rl"],
@@ -32,12 +32,12 @@ class Reload extends Command {
             if (error) EMBED.setColor(process.env.ERROR_COLOR);
 
             return channel.send(EMBED
-                .setDescription(`${error ? Emojis.Errado : Emojis.Certo} **${author.username}** ${t(STATUS, { error: errorEmit.message, cmd: CMD.commandHelp.name })}`)
+                .setDescription(`${error ? Emojis.Errado : Emojis.Certo} **${author.username}**, ${t(STATUS, { error: errorEmit.message, cmd: CMD.commandHelp.name })}`)
             )
         } else {
             const ERROR = (args[0] ? 'comandos:reload.noCommand' : 'comandos:reload.noArgs')
             return channel.send(EMBED
-                .setDescription(`${Emojis.Errado} **${author.username}** ${t(ERROR, { cmd: args.join(' ') })}`)
+                .setDescription(`${Emojis.Errado} **${author.username}**, ${t(ERROR, { cmd: args.join(' ') })}`)
                 .setColor(process.env.ERROR_COLOR)
             )
         }

@@ -10,7 +10,7 @@ class Eval extends Command {
         super(client, {
             name: "eval",
             description: "Executa códigos em JS",
-            usage: { args: true, argsNeed: true, argsTxt: "code", need: "{prefix} {cmd} <{args}>" },
+            usage: { args: true, argsNeed: true, argsTxt: "<code>", need: "{prefix} {cmd} {args}" },
             category: "Developer",
             cooldown: 3000,
             aliases: ["e"],
@@ -50,7 +50,7 @@ class Eval extends Command {
         } else {
             
             return channel.send(EMBED
-                .setDescription(`${Emojis.Errado} **${author.username}** ` + t('errors:noArgs'))
+                .setDescription(`${Emojis.Errado} **${author.username}**, ` + t('errors:noArgs'))
                 .setColor(process.env.ERROR_COLOR)
             );
         }

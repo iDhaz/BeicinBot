@@ -16,6 +16,7 @@ module.exports = class Command extends CommandUtils {
         this.cooldownTime = options.cooldown || 5000
         this.aliases = options.aliases || []
         this.devNeed = options.devNeed || false
+        this.ownerNeed = options.ownerNeed || false
         this.cooldown = new Map();
     }
 

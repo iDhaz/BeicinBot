@@ -18,7 +18,7 @@ module.exports = class MessageEvent extends Event {
         this.name = 'message'
         this.parameters = 'message'
 
-        super.ON_LOG()
+        super.ON_LOG();
     }
 
     async ON(message) {
@@ -27,12 +27,12 @@ module.exports = class MessageEvent extends Event {
 
         await this.DatabaseVerify(message.guild, message.author);
 
-        const { developer, blacklist } = await this.client.database.users.findOne(message.author.id);
+        const { developer, blacklist, owner } = await this.client.database.users.findOne(message.author.id);
         const { prefix, language } = await this.client.database.guilds.findOne(message.guild.id);
 
         if (message.content.match(await GET_MENTION(this.client.user.id)) && (!blacklist)) {
             return message.channel.send(new ClientEmbed(message.author)
-                .setDescription(`${Emojis.Certo} **${message.author.username}** ` + this.client.language.i18next.getFixedT(language)('comandos:mentionBot', { prefix }))
+                .setDescription(`${Emojis.Certo} **${message.author.username}**, ` + this.client.language.i18next.getFixedT(language)('comandos:mentionBot', { prefix }))
             )
         }
 
@@ -48,12 +48,14 @@ module.exports = class MessageEvent extends Event {
 
             if (command) {
                 const APROVE = async () => {
-                    const { devPermission } = await this.client.database.comandos.findOne(command.commandHelp.name);
+                    const { devPermission, ownerPermission } = await this.client.database.comandos.findOne(command.commandHelp.name);
 
                     if (blacklist) {
                         return { aproved: false, because: 'errors:isClientBlackListed' }
-                    } else if (devPermission && (!developer)) {
+                    } else if (devPermission && (!developer) && (!owner)) {
                         return { aproved: false, because: 'errors:noClientDeveloper' }
+                    } else if(ownerPermission && (!owner)) {
+                        return { aproved: false, because: 'errors:noClientOwner' }
                     }
                     return { aproved: true }
                 }
@@ -61,7 +63,7 @@ module.exports = class MessageEvent extends Event {
                 const { aproved, because } = await APROVE();
 
                 if (!(aproved)) return message.channel.send(new ClientEmbed(message.author)
-                    .setDescription(`${Emojis.Errado} **${message.author.username}** ` + this.client.language.i18next.getFixedT(language)(because))
+                    .setDescription(`${Emojis.Errado} **${message.author.username}**, ` + this.client.language.i18next.getFixedT(language)(because))
                 )
 
                 const settings = new CommandContext({

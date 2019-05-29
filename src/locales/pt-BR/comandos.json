@@ -1,13 +1,22 @@
 {
     "mentionBot": "utilize **`{{prefix}} help`** para saber mais!",
     "reloadlocales": {
-        "loaded": "Recarreguei o sistema de linguagem com sucesso!",
-        "noloaded": "Desculpe ocorreu um erro ao tentar recarregar!"
+        "loaded": "recarreguei o sistema de linguagem com sucesso!",
+        "noloaded": "desculpe ocorreu um erro ao tentar recarregar!"
     },
     "reload": {
-        "noArgs": "Por favor insira o `[nome|aliase]` do comando a ser **recarregado**!",
-        "noCommand": "Desculpe, mas o comando **{{cmd}}** não foi encontrado",
-        "error": "Ocorreu um erro ao tentar executar o comando : **{{err}}**",
-        "reloaded": "O comando **{{cmd}}** foi recarregado com **sucesso**!"
+        "noArgs": "por favor insira o `[nome|aliase]` do comando a ser **recarregado**!",
+        "noCommand": "desculpe, mas o comando **{{cmd}}** não foi encontrado",
+        "error": "ocorreu um erro ao tentar recarregar: **{{err}}**",
+        "reloaded": "o comando **{{cmd}}** foi recarregado com **sucesso**!"
+    },
+    "set": {
+        "noUserDb": "o usuário **{{user}}** não está cadastrado em minha `DATABASE`",
+        "hasApplied": "desculpe você não pode se **candidatar**!",
+        "noUserIdentify": "por favor **mencione** ou insira o **id** do usuário desejado!",
+        "noAliaseContent": "desculpe o **parâmetro** utilizado é inválido, os parâmetro são: `{{parameters}}`",
+        "noParameters": "Por favor utilize um **argumento**: `{{parameters}}`",
+        "setTo": "o usuário **{{user}}** foi setado como **`{{type}}`**!",
+        "unSetTo": "o usuário **{{user}}** foi removido de **`{{type}}`**!"
     }
 }

@@ -33,7 +33,8 @@ module.exports = class Event {
                     name: cmd.commandHelp.name.toUpperCase(),
                     devPermission: cmd.commandHelp.devNeed,
                     category: cmd.commandHelp.category,
-                    usage: cmd.commandHelp.usage
+                    usage: cmd.commandHelp.usage,
+                    ownerPermission: cmd.commandHelp.ownerNeed
                 })
             } else {
                 let name = cmd.commandHelp.name

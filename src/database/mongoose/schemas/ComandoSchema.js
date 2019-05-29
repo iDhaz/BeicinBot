@@ -18,6 +18,10 @@ module.exports = new Schema({
         type: Boolean,
         default: false
     },
+    ownerPermission: {
+        type: Boolean,
+        default: false
+    },
     Used: {
         type: Number,
         default: 0

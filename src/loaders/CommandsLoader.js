@@ -1,7 +1,6 @@
 const { CommandLoader, Command } = require("../structures/CMD/");
 const { readdir } = require("fs");
 const fs = require("fs");
-const DIR_COMMANDS = ('src/commands');
 const path = require('path');
 const { promisify } = require('util');
 
@@ -24,7 +23,7 @@ module.exports = class CommandsLoader extends CommandLoader {
             })
     }
 
-    async LoaderCommands() {
+    async LoaderCommands(DIR_COMMANDS = 'src/commands') {
         const files = await CommandsLoader.readdir(DIR_COMMANDS);
         return Promise.all(files.map(async file => {
             const fullPath = path.resolve(DIR_COMMANDS, file);

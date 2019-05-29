@@ -6,28 +6,37 @@ module.exports = class CommandUtils {
     _run() { }
 
     async GetUser(args, message, guild, author) {
-        let USER = null
+        args = (args && Array.isArray(args) ? args.join(' ') : args ? args : false)
+        let USER = false
+
         try {
-            if (args[0]) {
+            if (args) {
                 if (message.mentions.users.first()) {
                     USER = message.mentions.users.first()
-                } else if (!(isNaN(args[0]))) {
-                    if (this.client.fetchUser(args[0])) {
-                        USER = await this.client.fetchUser(args[0]).then(a => { return a })
+                } else if (!(isNaN(args))) {
+                    if (this.client.fetchUser(args)) {
+                        USER = await this.client.fetchUser(args).then(a => { return a })
+                    } else if (guild.members.get(args)) {
+                        USER = guild.members.get(args).user;
                     }
                 }
                 if (!USER) {
-                    if (guild.members.get(args[0]) || this.client.users.get(args[0])) {
-                        USER = guild.members.get(args[0]) ? guild.members.get(args[0]).user : this.client.users.get(args[0]);
-                    } else {
-                        USER = await (this.client.users.find(user => user.username.toLowerCase() === args.join(' ').toLowerCase()) ? this.client.users.find(user => user.username.toLowerCase() === args.join(' ').toLowerCase()) : this.client.users.find(user => user.tag.toLowerCase() === args.join(' ').toLowerCase()) ? this.client.users.find(user => user.tag.toLowerCase() === args.join(' ').toLowerCase()) : message.guild.members.find(user => user.displayName.toLowerCase() === args.join(' ').toLowerCase()) ? message.guild.members.find(user => user.displayName.toLowerCase() === args.join(' ').toLowerCase()).user : message.guild.members.find(user => user.displayName.toLowerCase().includes(args.join(' ').toLowerCase())) ? message.guild.members.find(user => user.displayName.toLowerCase().includes(args.join(' ').toLowerCase())).user : this.client.users.find(user => user.username.toLowerCase().includes(args.join(' ').toLowerCase())) ? this.client.users.find(user => user.username.toLowerCase().includes(args.join(' ').toLowerCase())) : null)
+                    if (this.client.users.find(user => user.username.toLowerCase() === args.toLowerCase())) {
+                        USER = this.client.users.find(user => user.username.toLowerCase() === args.toLowerCase())
+                    } else if (this.client.users.find(user => user.tag.toLowerCase() === args.toLowerCase())) {
+                        USER = this.client.users.find(user => user.tag.toLowerCase() === args.toLowerCase())
+                    } else if (this.client.users.find(user => user.username.toLowerCase().includes(args.toLowerCase()))) {
+                        USER = this.client.users.find(user => user.username.toLowerCase().includes(args.toLowerCase()))
+                    } else if (message.guild.members.find(user => user.displayName.toLowerCase() === args.toLowerCase())) {
+                        USER = message.guild.members.find(user => user.displayName.toLowerCase() === args.toLowerCase()).user
+                    } else if (message.guild.members.find(user => user.displayName.toLowerCase().includes(args.toLowerCase()))) {
+                        USER = message.guild.members.find(user => user.displayName.toLowerCase().includes(args.toLowerCase())).user
                     }
                 }
             } else {
                 USER = author
             }
-            if (!USER) USER = author;
-            return USER;
+            return USER ? USER : author;
         } catch (err) {
             return author;
         }

@@ -25,11 +25,11 @@ class ReloadLocales extends Command {
 
         if (LOADED) {
             return channel.send(EMBED
-                .setDescription(`${Emojis.Certo} **${author.username}** ${t('comandos:reloadlocales.loaded')}`)
+                .setDescription(`${Emojis.Certo} **${author.username}**, ${t('comandos:reloadlocales.loaded')}`)
             )
         } else {
             return channel.send(EMBED
-                .setDescription(`${Emojis.Certo} **${author.username}** ${t('comandos:reloadlocales.noloaded')}`)
+                .setDescription(`${Emojis.Certo} **${author.username}**, ${t('comandos:reloadlocales.noloaded')}`)
             )
         }
     }
