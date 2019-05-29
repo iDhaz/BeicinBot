@@ -2,7 +2,7 @@ const { Client, Collection } = require("discord.js");
 const MODULES = require("./loaders/"),
     { Match, Regions, ERRORS } = require("./utils/JSON/");
 
-module.exports = class Beiçin extends Client {
+module.exports = class Beicin extends Client {
     constructor(settings) {
         super(settings);
 
