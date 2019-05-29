@@ -4,7 +4,7 @@
 </div>
 
 ## Meu Criador
-Meu nome é **Pablo Vinícius**, sou de Salvador - Bahia. Tenho **16** anos, atualmente estou
+Meu nome é **Pablo Vinícius**. Tenho **16** anos, atualmente estou
 cursando 2° ano (Ensino Médio). <br> Possuo interesse em **desenvolvimento Web**, e programo *Discord Bot's*.
 
 <div align="center">
