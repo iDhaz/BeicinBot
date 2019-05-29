@@ -1,9 +1,4 @@
-const {
-    Command,
-    Emojis,
-    ClientEmbed,
-    EvaledCommand
-} = require("../../");
+const { Command, Emojis, ClientEmbed, EvaledCommand } = require("../../");
 
 class Eval extends Command {
     constructor(client) {
@@ -48,7 +43,6 @@ class Eval extends Command {
                 .setDescription(evalTransform)
             ).catch(this.client.logError)
         } else {
-            
             return channel.send(EMBED
                 .setDescription(`${Emojis.Errado} **${author.username}**, ` + t('errors:noArgs'))
                 .setColor(process.env.ERROR_COLOR)

@@ -1,8 +1,4 @@
-const {
-    Command,
-    Emojis,
-    ClientEmbed
-} = require("../../");
+const { Command, Emojis, ClientEmbed } = require("../../");
 
 class ReloadLocales extends Command {
     constructor(client) {
@@ -29,7 +25,8 @@ class ReloadLocales extends Command {
             )
         } else {
             return channel.send(EMBED
-                .setDescription(`${Emojis.Certo} **${author.username}**, ${t('comandos:reloadlocales.noloaded')}`)
+                .setDescription(`${Emojis.Errado} **${author.username}**, ${t('comandos:reloadlocales.noloaded')}`)
+                .setColor(process.env.ERROR_COLOR)
             )
         }
     }

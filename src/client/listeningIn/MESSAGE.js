@@ -1,5 +1,5 @@
-const Event = require("../../structures/Event.js"),
-    { ClientEmbed, CommandContext, Emojis } = require("../../");
+const Event = require("../../structures/Event.js");
+const { ClientEmbed, CommandContext, Emojis } = require("../../");
 
 const GET_MENTION = (id) => { return new RegExp(`^<@!?${id}>( |)$`) }
 
@@ -54,7 +54,7 @@ module.exports = class MessageEvent extends Event {
                         return { aproved: false, because: 'errors:isClientBlackListed' }
                     } else if (devPermission && (!developer) && (!owner)) {
                         return { aproved: false, because: 'errors:noClientDeveloper' }
-                    } else if(ownerPermission && (!owner)) {
+                    } else if (ownerPermission && (!owner)) {
                         return { aproved: false, because: 'errors:noClientOwner' }
                     }
                     return { aproved: true }

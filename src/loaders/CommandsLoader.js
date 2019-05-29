@@ -1,8 +1,8 @@
 const { CommandLoader, Command } = require("../structures/CMD/");
 const { readdir } = require("fs");
-const fs = require("fs");
-const path = require('path');
 const { promisify } = require('util');
+const path = require('path');
+const fs = require("fs");
 
 module.exports = class CommandsLoader extends CommandLoader {
     constructor(client) {

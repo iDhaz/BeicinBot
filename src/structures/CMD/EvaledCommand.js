@@ -19,10 +19,10 @@ module.exports = class EvaledCommand {
     async getEvaled({ author, channel, guild, message }, code, t) {
         let RESULT;
         let ERRROR_EMIT = false;
+
         try {
             RESULT = await eval(await codein(code));
         } catch (err) {
-            //this.client.LOG_ERR(err);
             err = err.message;
             RESULT = err;
             ERRROR_EMIT = true;
@@ -44,6 +44,7 @@ module.exports = class EvaledCommand {
         try {
             let BACKUP = RESULT;
             RESULT = (typeof RESULT === 'object' ? JSON.stringify(RESULT) : RESULT);
+            
             const REPLACES = [
                 process.env.TOKEN
             ]

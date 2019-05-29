@@ -1,6 +1,6 @@
-const CommandVerify = require("./CommandVerify.js"),
-    ErrorCommand = require("./ErrorCommand.js"),
-    CommandUtils = require("./CommandUtils.js");
+const CommandVerify = require("./CommandVerify.js");
+const ErrorCommand = require("./ErrorCommand.js");
+const CommandUtils = require("./CommandUtils.js");
 
 module.exports = class Command extends CommandUtils {
     constructor(client, options) {
@@ -24,7 +24,7 @@ module.exports = class Command extends CommandUtils {
         const { command, channel, author, language, developer, used, t } = settings;
         const CMDVerify = new CommandVerify(this.client);
         try {
-            if((!t)) throw new ErrorCommand(this.client.ERRORS.language[language]);
+            if ((!t)) throw new ErrorCommand(this.client.ERRORS.language[language]);
             if (this.Permissions.length >= 1 && await !(CMDVerify.VERIFY_CLIENT(settings))) return;
             if ((!developer) && this.UserPermissions.length >= 1 && await !(CMDVerify.VERIFY_MEMBER(settings))) return;
 

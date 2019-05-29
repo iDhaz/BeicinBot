@@ -16,7 +16,7 @@ module.exports = class CommandUtils {
             return OCURRED
         }
 
-        await this.client.commands.delete(cmd.commandHelp.name);
+        this.client.commands.delete(cmd.commandHelp.name);
 
         const required = require(dir);
         const command = new (required)(this.client);

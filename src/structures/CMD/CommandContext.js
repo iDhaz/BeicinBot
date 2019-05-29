@@ -1,5 +1,4 @@
 class CommandContext {
-
     constructor(options = {}) {
         this.client = options.client
 

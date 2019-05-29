@@ -1,8 +1,4 @@
-const {
-    Command,
-    Emojis,
-    ClientEmbed
-} = require("../../");
+const { Command, Emojis, ClientEmbed } = require("../../");
 
 class BotInfo extends Command {
     constructor(client) {
@@ -10,7 +6,7 @@ class BotInfo extends Command {
             name: "botinfo",
             description: "Informações sobre o bot",
             usage: { args: false, argsNeed: false },
-            category: "Developer",
+            category: "Bot",
             cooldown: 3000,
             aliases: ["bi", "boti"],
             Permissions: ["SEND_MESSAGES"],
