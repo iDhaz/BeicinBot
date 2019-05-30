@@ -1,0 +1,24 @@
+{
+    "set": [
+        {
+            "arg": "developer",
+            "type": "developer",
+            "num": 1
+        },
+        {
+            "arg": "dev",
+            "type": "developer",
+            "num": 1
+        },
+        {
+            "arg": "owner",
+            "type": "owner",
+            "num": 2
+        },
+        {
+            "arg": "own",
+            "type": "owner",
+            "num": 2
+        }
+    ]
+}

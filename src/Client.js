@@ -1,6 +1,6 @@
 const { Client, Collection } = require("discord.js");
 const MODULES = require("./loaders/");
-const { Match, Regions, ERRORS } = require("./utils/JSON/");
+const { Aliases, Errors, Match, Regions,  } = require("./utils/JSON/");
 
 module.exports = class Beicin extends Client {
     constructor(settings) {
@@ -8,10 +8,12 @@ module.exports = class Beicin extends Client {
 
         settings.requireEnv();
 
-        this.collection = Collection;
+        this.collection = Collection
+        this.Aliases = Aliases
+        this.ERRORS = Errors
         this.RandomMatch = Match
         this.regionsLang = Regions
-        this.ERRORS = ERRORS
+        
     }
 
     async CONNECT() {

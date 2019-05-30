@@ -1,5 +1,8 @@
 module.exports = {
-    Regions: require("./RegionsLang.json"),
+    Aliases: require("./Aliases.json"),
+    Errors: require("./Errors.json"),
     Match: require("./RandomMatch.json"),
-    ERRORS: require("./ERRORS.json")
+    Regions: require("./RegionsLang.json")
 }
+
+
