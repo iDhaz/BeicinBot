@@ -1,7 +1,5 @@
 const os = require('os');
 
-
-
 module.exports = class CommandUtils {
     constructor(client) {
         this.client = client
