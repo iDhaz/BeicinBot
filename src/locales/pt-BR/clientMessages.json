@@ -3,5 +3,7 @@
     "guilds": "Servidores",
     "node": "Versão do Node",
     "uptime": "Tempo Online",
-    "ram": "RAM Usada"
+    "ram": "RAM Usada",
+    "ping": "Latência",
+    "shard": "Repartição"
 }

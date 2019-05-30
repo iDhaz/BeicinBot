@@ -41,7 +41,7 @@ class Eval extends Command {
 
             return channel.send(EMBED
                 .setDescription(evalTransform)
-            ).catch(this.client.logError)
+            ).catch(this.client.LOG_ERR)
         } else {
             return channel.send(EMBED
                 .setDescription(`${Emojis.Errado} **${author.username}**, ` + t('errors:noArgs'))

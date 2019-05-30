@@ -12,10 +12,11 @@ module.exports = class CommandError extends Error {
                 .setDescription(error.message ? error.message : error)
                 .setColor(process.env.ERROR_COLOR)
             ).then(async () => {
-                client.imGuild.send(process.env.UTILS_LOGS['ERROR'], new ClientEmbed(used)
+                const CHANNEL = (JSON.parse(process.env.UTILS_LOGS)['ERROR'])
+                return client.imGuild.send(CHANNEL, new ClientEmbed(used)
                     .setColor(process.env.ERROR_COLOR)
                     .setTitle("Erro ao executar um Comando")
-                    .addField("Comando", command.name, true)
+                    .addField("Comando", command.commandHelp.name, true)
                     .addField("Usado Por:", used.tag, true)
                     .addField("No Servidor:", channel.guild.name + ' `(' + channel.guild.id + ')`', true)
                     .addField("Erro", error)

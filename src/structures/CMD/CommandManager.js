@@ -1,8 +1,20 @@
 const os = require('os');
 
+
+
 module.exports = class CommandUtils {
     constructor(client) {
         this.client = client
+    }
+
+    async getPing() {
+        let PING = await this.client.shard.broadcastEval('this.ping');
+        PING = PING[this.client.shard.id].toFixed(0)
+        return PING + '**MS**';
+    }
+
+    async getShard() {
+        return (`**${(this.client.shard.id + 1)}**` + "/" + `**${this.client.shard.count}**`)
     }
 
     async getUsersSize() {
@@ -21,7 +33,7 @@ module.exports = class CommandUtils {
         return (`${(MemoryHeapUsed)}**MB**` + " / " + `${(MemoryHeapTotal)}**MB**`)
     }
 
-    async getUptime() {
+    getUptime() {
         let NUM = parseInt((this.client.uptime / 1000), 10);
         let HOURS = Math.floor(NUM / 3600);
         let DAYS = Math.floor(HOURS / 24);
