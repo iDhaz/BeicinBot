@@ -5,5 +5,6 @@ module.exports = {
     CommandUtils: require("./CommandUtils.js"),
     CommandVerify: require("./CommandVerify.js"),
     ErrorCommand: require("./ErrorCommand.js"),
+    CommandManager: require("./CommandManager.js"),
     EvaledCommand: require("./EvaledCommand.js")
 }

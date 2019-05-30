@@ -14,12 +14,10 @@ module.exports = class Beicin extends Client {
         this.ERRORS = ERRORS
     }
 
-    async CONNECT(token = false) {
-        process.env.TOKEN ? token = process.env.TOKEN : this.Error('No token identify');
+    async CONNECT() {
         await this.initializeLoaders();
-        return super.login(token)
+        return super.login(process.env.TOKEN)
             .then(async () => {
-                this.imGuild = await this.guilds.get(process.env.GUILD_ID);
                 this.owner = await this.fetchUser(process.env.OWNER_ID)
             });
     }

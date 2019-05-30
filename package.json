@@ -2,9 +2,9 @@
     "name": "beicin",
     "version": "1.0.0",
     "description": "Beiçin, Simple Bot",
-    "main": "index.js",
+    "main": "ClientSharding.js",
     "scripts": {
-        "start": "node index.js",
+        "start": "node ClientSharding.js",
         "local": "nodemon --exec",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -12,11 +12,6 @@
         "node": ">=10.x",
         "npm": ">=6.x"
     },
-    "nodemonConfig": {
-        "ignore": [
-          "locales/*"
-        ]
-      },
     "author": "Pablo Vinícius (https://github.com/AvengerSuicide)",
     "contributors": [],
     "license": "MIT",
@@ -34,6 +29,7 @@
         "i18next-node-fs-backend": "^2.1.3",
         "mongoose": "^5.5.11",
         "nodemon": "^1.19.1",
+        "os": "^0.1.1",
         "path": "^0.12.7",
         "transform-props": "^1.0.1",
         "util": "^0.12.0"

@@ -17,10 +17,15 @@ class BotInfo extends Command {
 
     async run({ author, channel }, t) {
         const EMBED = new ClientEmbed(author)
-            .setAuthor(this.client.user.username, this.client.user.displayAvatarURL)
-            .setThumbnail(this.client.user.displayAvatarURL);
+            .setAuthor(this.client.user.username, this.client.user.displayAvatarURL);
+        //.setThumbnail(this.client.user.displayAvatarURL);
 
-        return channel.send(EMBED)
+        return channel.send(EMBED
+            .addField(t('clientMessages:users'), (await this.getUsersSize()), true)
+            .addField(t('clientMessages:guilds'), (await this.getGuildsSize()), true)
+            .addField(t('clientMessages:uptime'), (await this.getUptime()), true)
+            .addField(t('clientMessages:ram'), (await this.getRamUsage()), true)
+        )
     }
 }
 

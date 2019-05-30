@@ -1,5 +1,9 @@
-module.exports = class CommandUtils {
+const CommandManager = require("./CommandManager.js");
+
+module.exports = class CommandUtils extends CommandManager {
     constructor(client) {
+        super(client)
+        
         this.client = client
     }
 
